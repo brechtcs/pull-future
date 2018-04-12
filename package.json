@@ -1,4 +1,13 @@
 {
+  "name": "pull-promise-end",
+  "version": "1.0.0",
+  "description": "Drain pull-stream and return a promise",
+  "keywords": [
+    "pull-stream",
+    "promise",
+    "onEnd"
+  ],
+  "main": "index.js",
   "scripts": {
     "test": "standard && tape test.js"
   },
@@ -8,5 +17,14 @@
   "devDependencies": {
     "standard": "^10.0.3",
     "tape": "^4.8.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brechtpm/pull-promise-end.git"
+  },
+  "bugs": {
+    "url": "https://github.com/brechtpm/pull-promise-end/issues"
+  },
+  "author": "Brecht Savelkoul <brecht.savelkoul@gmail.com>",
+  "license": "Apache-2.0"
 }
