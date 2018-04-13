@@ -1,6 +1,6 @@
 {
   "name": "pull-promise-end",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Drain pull-stream and return a promise",
   "keywords": [
     "pull-stream",
