@@ -1,12 +1,14 @@
 {
   "name": "pull-resolve",
   "version": "1.0.0",
-  "description": "Drain pull-stream and return a promise",
+  "description": "Drain a pull-stream and await the result",
   "keywords": [
     "pull-stream",
+    "onEnd",
+    "async",
+    "await",
     "promise",
-    "resolve",
-    "onEnd"
+    "resolve"
   ],
   "main": "index.js",
   "scripts": {
