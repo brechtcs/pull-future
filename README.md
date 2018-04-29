@@ -8,22 +8,12 @@ A small wrapper function around `pull.onEnd`, which drains the stream passed to 
 var pull = require('pull-stream')
 var resolve = require('pull-resolve')
 
-var stream = pull(
-  pull.values([5, 4, 3, 2, 1, ]),
-  pull.asyncMap(someMagic)
-)
+async function example () {
+  var stream = pull(
+    pull.values([5, 4, 3, 2, 1, ]),
+    pull.asyncMap(someMagic)
+  )
 
-resolve(stream).then(function () {
-  // Move on
-}).catch(function (err) {
-  // Handle error
-})
-```
-
-Like all promises, you can also use this with `async/await`:
-
-```js
-async function drainStream () {
   try {
     await resolve(stream)
     // Move on
@@ -31,6 +21,14 @@ async function drainStream () {
     // Handle error
   }
 }
+```
+
+### Compatibility
+
+If `async/await` isn't supported in your environment, you can use the promise directly:
+
+```js
+resolve(stream).then(moveOn).catch(handleError)
 ```
 
 ## License
