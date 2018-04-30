@@ -116,6 +116,17 @@ function write (db, opts) {
     })
   }
 }
+
+async function demo () {
+  var stream = pull.values(someData)
+  
+  try {
+    await resolve(stream, write(db))
+    // move on
+  } catch (err) {
+    // handle errors
+  }
+}
 ```
 
 ### Compatibility
