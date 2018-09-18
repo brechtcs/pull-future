@@ -83,8 +83,8 @@ test('reduce', async function (t) {
 function happy () {
   return pull(
     pull.values([1, 2, 3]),
-    pull.asyncMap(function (val, cb) {
-      cb(null, val * 2)
+    resolve.map(async function (val) {
+      return val * 2
     })
   )
 }
@@ -92,8 +92,8 @@ function happy () {
 function fail () {
   return pull(
     pull.values([1, 2, 3]),
-    pull.asyncMap(function (val, cb) {
-      cb(new Error('panic!'))
+    resolve.map(async function (val) {
+      throw new Error('panic!')
     })
   )
 }
