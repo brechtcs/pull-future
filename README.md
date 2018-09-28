@@ -1,4 +1,4 @@
-# pull-resolve
+# pull-future
 
 Library to wrap `pull-stream` sinks and await the result.
 

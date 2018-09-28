@@ -1,34 +1,11 @@
-var pull = require('pull-stream')
+// main pull utility
+module.exports = require('pull-stream/pull')
 
-module.exports = function resolve (stream, fn) {
-  return new Promise(function (resolve, reject) {
-    fn = fn || onEnd
-    pull(stream, fn(resolve, reject))
-  })
-}
+// pull-stream sources
+module.exports.values = require('pull-stream/sources/values')
 
-module.exports.map = function map (mapper) {
-  function res (val, cb) {
-    if (typeof val.then === 'function') {
-      val.then(function (data) {
-        cb(null, data)
-      }).catch(function (err) {
-        cb(err)
-      })
-    } else {
-      cb(null, val)
-    }
-  }
+// pull-stream throughs
+module.exports.map = require('./map')
 
-  return pull(
-    pull.map(mapper),
-    pull.asyncMap(res)
-  )
-}
-
-function onEnd (resolve, reject) {
-  return pull.onEnd(function (err) {
-    if (err) reject(err)
-    else resolve()
-  })
-}
+// awaitable sink
+module.exports.future = require('./future')
