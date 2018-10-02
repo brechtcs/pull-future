@@ -1,8 +1,8 @@
-var pull = require('pull-stream')
+var reduce = require('pull-stream/sinks/reduce')
 
 module.exports = function (...args) {
   return function (resolve, reject) {
-    return pull.reduce(...args, function (err, res) {
+    return reduce(...args, function (err, res) {
       if (err) reject(err)
       else resolve(res)
     })

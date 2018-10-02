@@ -1,8 +1,8 @@
-var pull = require('pull-stream')
+var collect = require('pull-stream/sinks/collect')
 
 module.exports = function () {
   return function (resolve, reject) {
-    return pull.collect(function (err, arr) {
+    return collect(function (err, arr) {
       if (err) reject(err)
       else resolve(arr)
     })

@@ -13,4 +13,3 @@ function onEnd (resolve, reject) {
     else resolve()
   })
 }
-

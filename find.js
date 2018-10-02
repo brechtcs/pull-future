@@ -1,8 +1,8 @@
-var pull = require('pull-stream')
+var find = require('pull-stream/sinks/find')
 
 module.exports = function (test) {
   return function (resolve, reject) {
-    return pull.find(test, function (err, res) {
+    return find(test, function (err, res) {
       if (err) reject(err)
       else resolve(res)
     })

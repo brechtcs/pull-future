@@ -1,6 +1,6 @@
-var pull = require('pull-stream')
+var asyncMap = require('pull-stream/throughs/async-map')
 
-module.exports = function map (fn) {
+module.exports = function resolve () {
   function res (val, cb) {
     if (typeof val.then === 'function') {
       val.then(function (data) {
@@ -13,11 +13,5 @@ module.exports = function map (fn) {
     }
   }
 
-  if (!fn) {
-    return pull.asyncMap(res)
-  }
-  return pull(
-    pull.map(fn),
-    pull.asyncMap(res)
-  )
+  return asyncMap(res)
 }
